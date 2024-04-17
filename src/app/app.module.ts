@@ -15,7 +15,6 @@ import { BookComponent } from './book/book.component';
 import { PackageComponent } from './package/package.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ReviewComponent } from './review/review.component';
-import { ContactComponent } from './contact/contact.component';
 import { BrandComponent } from './brand/brand.component';
 import { FooterComponent } from './footer/footer.component';
 import { PackageDetailsComponent } from './package-details/package-details.component';
@@ -39,6 +38,7 @@ import { MatInputModule } from '@angular/material/input';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import {environment} from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 @NgModule({
@@ -50,7 +50,6 @@ import { RegisterComponent } from './register/register.component';
     PackageComponent,
     GalleryComponent,
     ReviewComponent,
-    ContactComponent,
     BrandComponent,
     FooterComponent,
     PackageDetailsComponent,
@@ -63,7 +62,8 @@ import { RegisterComponent } from './register/register.component';
     DemoComponent,
     PaymentComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

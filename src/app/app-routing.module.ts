@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PackageComponent } from './package/package.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ReviewComponent } from './review/review.component';
-import { ContactComponent } from './contact/contact.component';
+
 import { HomeComponent } from './home/home.component';
 import { PackageDetailsComponent } from './package-details/package-details.component';
 import { ConfirmComponent } from './confirm/confirm.component';
@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'packages', component: PackageComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'review', component: ReviewComponent },
-  { path: 'contact', component: ContactComponent },
   // { path: 'package-details/:location', component: PackageDetailsComponent },
   { path: 'package-details/:id', component: PackageDetailsComponent },
   {path: "confirm", component: ConfirmComponent},

@@ -1,0 +1,141 @@
+<div class="main">
+    <!-- <div class="banner">
+        <img src="./assets/images/106294131-1576211589402gettyimages-913987230.jpeg">
+    </div> -->
+    <section class="packages" id="packages">
+        <div class="pacheading">
+            <h1>Our Most Popular Destinations</h1>
+            <p>Based on Popularity</p>
+        </div>
+        <input type="text" placeholder="Search by State or City" [(ngModel)]="filterText"
+            (ngModelChange)="filterBoxes()">
+        <div class="box-container">
+            <div class="plchol" *ngIf="filteredBoxes.length === 0">
+                <h2>No destinations</h2>
+                <p>Sorry, no destinations match your filter.</p>
+            </div>
+            <div *ngFor="let box of filteredBoxes" class="box">
+                <a [routerLink]="['/package-details', box.id]">
+                    <div class="image">
+                        <img [src]="box.imageUrl" alt="">
+                        <div class="save">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>{{ box.title }}</p>
+                        <div class="bottom">
+                            <div class="circle">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                            </div>
+                            <div class="num">{{ box.likes }}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- <div class="main">
+    <section class="packages" id="packages">
+        <div class="pacheading1">
+            <h1>Ways to tour Bengaluru</h1>
+            <p>Book these experiences for a close-up look at Bengaluru.</p>
+        </div>
+        <div class="box-container">
+            <div *ngFor="let box of boxes1" class="box">
+                <div class="image">
+                    <img [src]="box.imageUrl" alt="">
+                    <div class="save">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{ box.title }}</p>
+                    <div class="bottom">
+                        <div class="circle">
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="num">{{ box.likes }}</div>
+                    </div>
+                    <div class="price">{{ box.price }}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div> -->
+
+<!-- <div class="main">
+    <section class="packages" id="packages">
+        <div class="pacheading">
+            <h1>Travellers Choice: Top hotels</h1>
+            <p></p>
+        </div>
+        <div class="box-container">
+            <div *ngFor="let box of boxes2" class="box">
+                
+                <div class="image">
+                    <img [src]="box.imageUrl" style="width: 100%;" alt="">
+                    <div class="save">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{ box.title }}</p>
+                    <div class="bottom">
+                        <div class="circle">
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="num">{{ box.likes }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="main">
+    <section class="packages" id="packages">
+        <div class="pacheading">
+            <h1>Travellers Choice: All-inclusive resorts</h1>
+            <p></p>
+        </div>
+        <div class="box-container">
+            <div *ngFor="let box of boxes3" class="box">
+                <div class="image">
+                    <img [src]="box.imageUrl" style="width: 100%;" alt="">
+                    <span></span>
+                    <div class="save">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{ box.title }}</p>
+                    <div class="bottom">
+                        <div class="circle">
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="num">{{ box.likes }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div> -->

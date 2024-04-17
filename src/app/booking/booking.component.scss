@@ -1,0 +1,181 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-bread{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    font-size: 1.5em;
+    margin-top: 5%;
+}
+
+.middle-book{
+    margin-top: 3%;
+}
+
+.active{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.cur{
+    font-weight: bold;
+}
+
+.middle-book{
+    display: flex;
+    width: 100%;
+    height: 800px;
+    justify-content: space-around;
+}
+
+.user-detail{
+    /* border: red 1px solid; */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-head{
+    margin-left: 5%;
+}
+
+.name-head,.label-head{
+    display: flex;
+    justify-content: space-around;
+}
+
+.label-head label{
+    padding-right: 29.75%;
+}
+
+.name{
+    width: 40%;
+}
+
+.email{
+    width: 90%;
+    margin-left: 5.25%;
+}
+
+.phno{
+    margin-left: 5%;
+    width: 40%;
+}
+
+.gap{
+    width: 100%;
+    height: 7%;
+    color: white;
+}
+
+.promo{
+    margin-top: 5%;
+    margin-left: 5.25%;
+}
+
+.promo h1{
+    margin-bottom: 0;
+}
+
+.submit-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.contact-btn:hover{
+    background-color: #545454;
+    transition: 0.5s ease-in-out;
+}
+
+.contact-btn,.contact-btn:disabled{
+    margin: 5%;
+    margin-left: 5%;
+    font-size: 1.2em;
+    padding: 1% 14%;
+    border-radius: 8%;
+    color: white;
+    background-color: black;
+}
+
+.book-card{
+    /* border: yellow 1px solid; */
+    width: 39%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-card1,.book-card2{
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 3%;
+    height: 42%;
+    width: 85%;
+}
+
+.book-card2{
+    height: 45%;
+}
+
+.trip-detail{
+    display: flex;
+    justify-content: space-around;
+}
+
+.trip-pic{
+    /* border: 1px solid green; */
+    width: 130px;
+    height: 110px;
+}
+
+.trip-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.trip-det{
+    width: 60%;
+}
+
+.trip-payit{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+input{
+    border: #e0e0e0 2px solid;
+    border-radius: 4px;
+    height: 3em;
+}
+
+.conf1{
+    display: flex;
+    justify-content:start;
+}
+
+.conf-icon{
+    margin-left: 2%;
+    width: 12%;
+}
+
+.conf-det h4{
+    margin-bottom: 2.5%;
+}
+
+.error-head{
+    display: flex;
+    justify-content: space-around;
+}
+
+.name-error{
+    width: 40%;
+}
+
+.help-block{
+    color: red;
+    font-size: 0.8em;
+}

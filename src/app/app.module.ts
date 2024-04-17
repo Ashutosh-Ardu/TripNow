@@ -39,6 +39,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import {environment} from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ContactusComponent } from './contactus/contactus.component';
     PaymentComponent,
     LoginComponent,
     RegisterComponent,
-    ContactusComponent
+    ContactusComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

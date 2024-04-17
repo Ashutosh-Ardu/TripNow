@@ -13,7 +13,8 @@ export class PaymentComponent {
   
 
   ngOnInit(): void {
-    // connecting the 
+    // connecting to Paypal
+  localStorage.setItem("transId","$18891910951$%")
       window.paypal.Buttons(
         {
           style:{

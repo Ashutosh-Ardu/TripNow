@@ -2,7 +2,7 @@
     <div class="log-box">
         <h1>Register</h1>
         <div class="log-bot">
-            <form class="log-form" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+            <form class="log-form" [formGroup]="regForm">
                 <label class="">Email ID:</label>
                 <input type="text" class="form-control" formControlName="email">
                 <span *ngIf="!fCon.email.valid && fCon.email.touched" class="help-block">*Email Required</span>
@@ -12,7 +12,7 @@
                 <label>Confirm Password</label>
                 <input type="text" class="form-control" formControlName="cpwd">
                 <span *ngIf="!fCon.cpwd.valid && fCon.cpwd.touched" class="help-block">*Password should be the same as above</span>
-                <button type="submit" class="btn" routerLink="/login">Sign Up</button>
+                <button type="submit" class="btn" (click)="register()">Sign Up</button>
             </form>
         </div>
 

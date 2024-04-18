@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   constructor(
     private router: Router,
-    private fb: NonNullableFormBuilder
+    private fb: NonNullableFormBuilder,
+    private auth: AuthService
   ){}
 
   regForm = this.fb.group({
@@ -25,5 +27,16 @@ export class RegisterComponent {
 
   onSubmit(){
     console.log(this.regForm);
+  }
+
+  register(){
+    
+    const { email, pwd,cpwd } = this.regForm.value;
+
+    if (!email || !pwd || !cpwd || pwd != cpwd) {
+      return;
+    }
+
+    this.auth.register(email,pwd)
   }
 }

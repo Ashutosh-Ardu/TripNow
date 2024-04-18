@@ -40,6 +40,7 @@ import {environment} from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {AngularFireModule} from '@angular/fire/compat'
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     NgxPayPalModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),

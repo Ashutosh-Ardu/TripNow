@@ -1,43 +1,51 @@
 import { Injectable } from '@angular/core';
-import {
-  Auth,
-  signInWithEmailAndPassword,
-  authState,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  UserInfo,
-  UserCredential,
-} from '@angular/fire/auth';
-import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  currentUser$ = authState(this.auth);
 
-  constructor(private auth: Auth) {}
+  constructor(
+    private fireauth : AngularFireAuth,
+    private router: Router
+  ) { }
 
-  signUp(email: string, password: string): Observable<UserCredential> {
-    return from(createUserWithEmailAndPassword(this.auth, email, password));
+  // login method
+  login(email: string,password: string){
+    localStorage.setItem('isLoggedIn','false')
+    this.fireauth.signInWithEmailAndPassword(email,password).then(() => {
+      localStorage.setItem('token','true')
+      localStorage.setItem('isLoggedIn','true')
+      this.router.navigate(['/booking'])
+    },err => {
+      alert(err.message)
+      this.router.navigate(['/login'])
+    })
   }
 
-  login(email: string, password: string): Observable<any> {
-    return from(signInWithEmailAndPassword(this.auth, email, password));
+  // register method
+
+  register(email:string, password: string){
+    this.fireauth.createUserWithEmailAndPassword(email,password).then(() => {
+      alert('Successful Login')
+      this.router.navigate(['/login'])
+    },err => {
+      alert(err.message)
+      this.router.navigate(['/register'])
+    })
   }
 
-  updateProfile(profileData: Partial<UserInfo>): Observable<any> {
-    const user = this.auth.currentUser;
-    return of(user).pipe(
-      concatMap((user) => {
-        if (!user) throw new Error('Not authenticated');
-
-        return updateProfile(user, profileData);
-      })
-    );
-  }
-
-  logout(): Observable<any> {
-    return from(this.auth.signOut());
+  // signout method
+  logout(){
+    this.fireauth.signOut().then(() => {
+      localStorage.removeItem('token')
+      localStorage.setItem('isLoggedIn','false')
+      alert('Session Logged Out!!')
+      this.router.navigate(['/login'])
+    },err => {
+      alert(err.message)
+    })
   }
 }

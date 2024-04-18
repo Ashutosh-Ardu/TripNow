@@ -14,6 +14,7 @@ export class PaymentComponent {
 
   ngOnInit(): void {
     // connecting to Paypal
+  localStorage.setItem("paid","false")
   localStorage.setItem("transId","$18891910951$%")
       window.paypal.Buttons(
         {
@@ -38,6 +39,7 @@ export class PaymentComponent {
           onApprove: (data: any,actions: any) => {
             return actions.order.capture().then((details:any) => {
               if(details.status === 'COMPLETED'){
+                localStorage.setItem("paid","true")
                 this.router.navigate(['confirm'])
               }
             })

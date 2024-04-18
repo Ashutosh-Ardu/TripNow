@@ -2,15 +2,16 @@
     <div class="log-box">
         <h1>Login</h1>
         <div class="log-bot">
-            <form class="log-form" [formGroup] = "logForm" (ngSubmit)="submit()">
+            <form class="log-form" [formGroup] = "logForm">
                 <label class="">Email ID:</label>
                 <input type="text" class="form-control" formControlName="email">
                 <span *ngIf="!fCon.email.valid && fCon.email.touched" class="help-block">*Email Required</span>
                 <label>Password</label>
-                <input type="text" class="form-control" formControlName="pwd">
+                <input type="password" class="form-control" formControlName="pwd">
                 <span *ngIf="!fCon.pwd.valid && fCon.pwd.touched" class="help-block">*Password Required</span>   
 
-                <button type="submit" class="btn" routerLink="/booking" (click)="onSubmit()">Sign In</button>
+                <button type="submit" class="btn" (click)="login()">Sign In</button>
+                <button type="submit" class="btn" (click)="logout()">Logout</button>
             </form>
             <p>New to TripNow? <a routerLink="/register">Sign Up</a></p>
         </div>

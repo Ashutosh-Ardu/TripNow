@@ -13,6 +13,10 @@ import { PaymentComponent } from './payment/payment.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { authGuard } from './guards/auth.guard';
+import { revAuthGuard } from './guards/rev-auth.guard';
+import { payGuard } from './guards/pay.guard';
+import { revPayGuard } from './guards/rev-pay.guard';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,12 +26,12 @@ const routes: Routes = [
   { path: 'review', component: ReviewComponent },
   // { path: 'package-details/:location', component: PackageDetailsComponent },
   { path: 'package-details/:id', component: PackageDetailsComponent },
-  {path: "confirm", component: ConfirmComponent},
-  {path: "booking", component: BookingComponent},
+  {path: "confirm", component: ConfirmComponent,canActivate: [payGuard]},
+  {path: "booking", component: BookingComponent,canActivate: [authGuard]},
   {path: "demo", component: DemoComponent},
-  {path: "payment", component: PaymentComponent},
-  {path: "login", component: LoginComponent},
-  {path: "register", component: RegisterComponent},
+  {path: "payment", component: PaymentComponent,canActivate: [revPayGuard]},
+  {path: "login", component: LoginComponent,canActivate: [revAuthGuard]},
+  {path: "register", component: RegisterComponent,canActivate: [revAuthGuard]},
   {path: "**", component: NotFoundComponent},
 ];
 

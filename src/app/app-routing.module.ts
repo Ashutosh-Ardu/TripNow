@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: "confirm", component: ConfirmComponent,canActivate: [payGuard]},
   {path: "booking", component: BookingComponent,canActivate: [authGuard]},
   {path: "demo", component: DemoComponent},
-  {path: "payment", component: PaymentComponent,canActivate: [revPayGuard]},
+  {path: "payment", component: PaymentComponent,canActivate: [authGuard,revPayGuard]},
   {path: "login", component: LoginComponent,canActivate: [revAuthGuard]},
   {path: "register", component: RegisterComponent,canActivate: [revAuthGuard]},
   {path: "**", component: NotFoundComponent},

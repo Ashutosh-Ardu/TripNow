@@ -15,6 +15,7 @@ export class LoginComponent{
     private router: Router,
     private authService: AuthService,
     private fb: NonNullableFormBuilder,
+    private fb1: NonNullableFormBuilder,
     private auth :AuthService
   ){}
   
@@ -24,8 +25,18 @@ export class LoginComponent{
     pwd: ['', [Validators.required,Validators.minLength(6)]],
   });
 
+  regForm = this.fb1.group({
+    email: ['',[Validators.email,Validators.required]],
+    pwd: ['',[Validators.required,Validators.minLength(6)]],
+    cpwd: ['',[Validators.required,Validators.minLength(6)]],
+  })
+
   get fCon(){
     return this.logForm['controls'];
+  }
+
+  get rCon(){
+    return this.regForm['controls'];
   }
 
   get email() {
@@ -47,6 +58,18 @@ export class LoginComponent{
     }
 
     this.auth.login(email,pwd)
+  }
+
+  register(){
+    
+    const { email, pwd,cpwd } = this.regForm.value;
+
+    if (!email || !pwd || !cpwd || pwd != cpwd) {
+      alert("Confirm Password should same as Password")
+      return;
+    }
+
+    this.auth.register(email,pwd)
   }
 
   logout(){

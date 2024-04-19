@@ -5,11 +5,12 @@ export const revAuthGuard: CanActivateFn = (route, state) => {
 
   const _router = inject(Router)
   let isLoggedIn = localStorage.getItem('isLoggedIn')
+  // let isLoggedIn = window.isLoggedIn
 
 
   if(isLoggedIn == 'true'){
     alert('Already Logged In')
-    _router.navigate(['/booking'])
+    // _router.navigate(['/booking'])
     return false
   }
 

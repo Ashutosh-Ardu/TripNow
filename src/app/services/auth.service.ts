@@ -9,15 +9,15 @@ export class AuthService {
 
   constructor(
     private fireauth : AngularFireAuth,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   // login method
   login(email: string,password: string){
-    localStorage.setItem('isLoggedIn','false')
     this.fireauth.signInWithEmailAndPassword(email,password).then(() => {
-      localStorage.setItem('token','true')
       localStorage.setItem('isLoggedIn','true')
+      window.isLoggedIn = true
+
       this.router.navigate(['/booking'])
     },err => {
       alert(err.message)
@@ -33,15 +33,15 @@ export class AuthService {
       this.router.navigate(['/login'])
     },err => {
       alert(err.message)
-      this.router.navigate(['/register'])
+      this.router.navigate(['/login'])
     })
   }
 
   // signout method
   logout(){
     this.fireauth.signOut().then(() => {
-      localStorage.removeItem('token')
       localStorage.setItem('isLoggedIn','false')
+      window.isLoggedIn = false
       alert('Session Logged Out!!')
       this.router.navigate(['/login'])
     },err => {

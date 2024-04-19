@@ -1,6 +1,7 @@
 import { style } from '@angular/animations';
 import { Component, ElementRef, ViewChild, viewChild,OnInit, defineInjectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-payment',
@@ -10,11 +11,9 @@ import { Router } from '@angular/router';
 export class PaymentComponent {
   @ViewChild('paymentRef',{static:true}) paymentRef: ElementRef;
 
-  
 
   ngOnInit(): void {
     // connecting to Paypal
-  localStorage.setItem("paid","false")
   localStorage.setItem("transId","$18891910951$%")
       window.paypal.Buttons(
         {
@@ -40,6 +39,7 @@ export class PaymentComponent {
             return actions.order.capture().then((details:any) => {
               if(details.status === 'COMPLETED'){
                 localStorage.setItem("paid","true")
+                window.paid = true
                 this.router.navigate(['confirm'])
               }
             })
@@ -54,7 +54,8 @@ export class PaymentComponent {
   amount: string;
 
   constructor(
-    private router:Router
+    private router:Router,
+    private store: AuthService
   ){
     this.amount = '7035.65'
   }

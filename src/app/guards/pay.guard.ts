@@ -4,10 +4,11 @@ import { CanActivateFn, Router } from '@angular/router';
 export const payGuard: CanActivateFn = (route, state) => {
   const _router = inject(Router)
   let paid = localStorage.getItem('paid')
+  // let paid = window.paid
 
 
   if(paid == 'false'){
-    alert('Pay First!!!')
+    alert ('Pay First!!!')
     _router.navigate(['/booking'])
     return false
   }

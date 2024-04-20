@@ -27,16 +27,16 @@
             <label>Last Name*</label>
           </div>
           <div class="name-head">
-            <input type="text" class="name" formControlName="fname">
-            <input type="text" class="name" formControlName="lname">
+            <input type="text" class="name capitalize" formControlName="fname">
+            <input type="text" class="name capitalize" formControlName="lname">
           </div>
           <div class="error-head">
             <div class="name-error">
-              <span *ngIf="fCon.fname.errors && fCon.fname.touched" class="help-block">*Only Alphabets
+              <span *ngIf="fCon.fname.errors && fCon.fname.dirty" class="help-block">*Only Alphabets
                 (lim. 20)</span>
             </div>
             <div class="name-error">
-              <span *ngIf="fCon.lname.errors && fCon.lname.touched" class="help-block">*Only Alphabets
+              <span *ngIf="fCon.lname.errors && fCon.lname.dirty" class="help-block">*Only Alphabets
                 (lim. 20)</span>
             </div>
           </div>
@@ -48,7 +48,7 @@
           <br>
           <input type="text" class="email" formControlName="email">
           <br>
-          <span style="margin-left: 5.25%;" *ngIf="!fCon.email.valid && fCon.email.touched"
+          <span style="margin-left: 5.25%;" *ngIf="!fCon.email.valid && fCon.email.dirty"
             class="help-block">*Enter Valid Email</span>
           <br>
   
@@ -56,7 +56,7 @@
   
           <div>
             <label style="margin-left: 5.25%;">Phone Number*</label>
-            <label style="margin-left: 40%">Age*</label>
+            <label style="margin-left: 38%">Age*</label>
           </div>
           <div class="name-head">
             <input type="text" class="name" formControlName="phno">
@@ -66,11 +66,11 @@
   
           <div class="error-head">
             <div class="name-error">
-              <span *ngIf="fCon.phno.invalid && fCon.phno.touched" class="help-block">*Enter Valid
+              <span *ngIf="fCon.phno.invalid && fCon.phno.dirty" class="help-block">*Enter Valid
                 Phone No.</span>
             </div>
             <div class="name-error">
-              <span *ngIf="!fCon.doj.valid && fCon.doj.touched" class="help-block">*Age should be
+              <span *ngIf="!fCon.doj.valid && fCon.doj.dirty" class="help-block">*Age should be
                 above 17</span>
             </div>
           </div>
@@ -78,7 +78,7 @@
           <br>
           <div class="name-head" style="justify-content: start;">
             <input type="checkbox" style="margin-left:5.25%;"> &nbsp;
-            <span style="margin-top: 1.5%;"> Receive SMS updates about your booking. Message rates may apply.</span>
+            <p style="margin-top: 1.5%;"> Receive SMS updates about your booking. Message rates may apply.</p>
           </div>
           <!-- Promo -->
           <div class="promo">

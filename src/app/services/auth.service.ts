@@ -20,7 +20,12 @@ export class AuthService {
 
       this.router.navigate(['/booking'])
     },err => {
-      alert(err.message)
+      // alert(err.message)
+      console.log(err.code)
+      let t = err.code
+      if(t === "auth/email-already-in-use") alert("Email Already Exists")
+      if(t === "auth/invalid-credential") alert("Invalid Credentials")
+      if(t === "auth/invalid-password") alert("Password should have minimum length: 6")
       this.router.navigate(['/login'])
     })
   }
@@ -32,7 +37,12 @@ export class AuthService {
       alert('Successful Login')
       this.router.navigate(['/login'])
     },err => {
-      alert(err.message)
+      // alert(err.message)
+      console.log(err.code)
+      let t = err.code
+      if(t === "auth/email-already-in-use") alert("Email Already Exists")
+        if(t === "auth/invalid-credential") alert("Invalid Credentials")
+        if(t === "auth/invalid-password") alert("Password should have minimum length: 6")
       this.router.navigate(['/login'])
     })
   }

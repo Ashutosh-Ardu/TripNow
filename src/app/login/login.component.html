@@ -5,10 +5,10 @@
             <form class="log-form" [formGroup] = "logForm">
                 <label class="">Email ID:</label>
                 <input type="text" class="form-control" formControlName="email">
-                <span *ngIf="!fCon.email.valid && fCon.email.touched" class="help-block">*Email Required</span>
+                <span *ngIf="!fCon.email.valid && fCon.email.dirty" class="help-block">*Email Required</span>
                 <label>Password</label>
                 <input type="password" class="form-control" formControlName="pwd">
-                <span *ngIf="!fCon.pwd.valid && fCon.pwd.touched" class="help-block">*Password Required</span>   
+                <span *ngIf="!fCon.pwd.valid && fCon.pwd.dirty" class="help-block">*Password Required</span>   
 
                 <button type="submit" class="btn" (click)="login()">Sign In</button>
                 <button type="submit" class="btn" (click)="logout()">Logout</button>
@@ -26,10 +26,10 @@
       <form class="form" [formGroup] = "logForm">
         <label for="chk" aria-hidden="true">Log in</label>
         <input class="input form-control" type="email" name="email" placeholder="Email" formControlName="email">
-        <span *ngIf="!fCon.email.valid && fCon.email.touched" class="help-block">*Email Required</span>
+        <span *ngIf="!fCon.email.valid && fCon.email.dirty" class="help-block">*Email Required</span>
         <input class="input form-control" type="password" name="pswd" placeholder="Password" formControlName="pwd">
-        <span *ngIf="!fCon.pwd.valid && fCon.pwd.touched" class="help-block">*Password Required</span>   
-        <button class="btn btn-primary" (click)="login()">Log in</button>
+        <span *ngIf="!fCon.pwd.valid && fCon.pwd.dirty" class="help-block">*Password Required</span>   
+        <button class="btn btn-primary" (click)="login()" [disabled]="!logForm.valid">Log in</button>
       </form>
     </div>
 
@@ -37,12 +37,12 @@
       <form class="form" [formGroup]="regForm">
         <label for="chk" aria-hidden="true">Register</label>
         <input class="input form-control" type="email" name="email" placeholder="Email" required="" formControlName="email">
-        <span *ngIf="!rCon.email.valid && rCon.email.touched" class="help-block1">*Email Required</span>
+        <span *ngIf="!rCon.email.valid && rCon.email.dirty" class="help-block1">*Email Required</span>
         <input class="input form-control" type="password" name="pswd" placeholder="Password" required="" formControlName="pwd">
-        <span *ngIf="!rCon.pwd.valid && rCon.pwd.touched" class="help-block1">*Password Required</span>
+        <span *ngIf="!rCon.pwd.valid && rCon.pwd.dirty" class="help-block1">*Password Required</span>
         <input class="input form-control" type="password" name="pswd" placeholder="Confirm Password" required="" formControlName="cpwd">
-        <span *ngIf="!rCon.cpwd.valid && rCon.cpwd.touched" class="help-block1">*Password Required</span>
-        <button class="btn btn-primary" (click)="register()">Register</button>
+        <span *ngIf="!rCon.cpwd.valid && rCon.cpwd.dirty" class="help-block1">*Password Required</span>
+        <button class="btn btn-primary" (click)="register()" [disabled]="regForm.invalid">Register</button>
       </form>
     </div>
   </div>

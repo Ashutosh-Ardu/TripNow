@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
- 
-
+import {NgAlertBoxComponent, NgAlertBoxService} from "ng-alert-box-popup";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +15,8 @@ export class LoginComponent{
     private authService: AuthService,
     private fb: NonNullableFormBuilder,
     private fb1: NonNullableFormBuilder,
-    private auth :AuthService
+    private auth :AuthService,
+    private alerts: NgAlertBoxService
   ){}
   
 
@@ -75,4 +75,6 @@ export class LoginComponent{
   logout(){
     this.auth.logout();
   }
+
+  
 }

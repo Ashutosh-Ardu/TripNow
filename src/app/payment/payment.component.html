@@ -21,10 +21,10 @@
       <div class="gap">.</div>
   
       <div class="payment-det">
-        <h1><strong>Total Price: $84.09</strong></h1>
+        <h1><strong>Total Price: ${{ this.data.price * this.data.count }}</strong></h1>
         <ul>
           <li><span class="material-symbols-outlined">schedule</span></li>
-          <li><h4><strong>Free cancellation before 19 April</strong></h4></li>
+          <li><h4><strong>Free cancellation within 5 days of Booking</strong></h4></li>
         </ul>
           
       </div>
@@ -60,16 +60,15 @@
 
         <div class="trip-detail">
           <div class="trip-pic">
-            <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-360x240/07/b4/3f/5e.jpg" alt="Trip">
+            <img src="{{ this.data.imageUrl }}" alt="Trip">
           </div>
           
           <div class="trip-det">
-            <h3><strong>Koh Hey in Half a Day</strong></h3>
-            <p>Koh Hey in Half a Day - 12:00 pm
-              Saturday, 20 April, 2024
-              <br>2 Adults
+            <h3><strong>{{ this.data.title }}</strong></h3>
+            <p>Day of Travel: {{ this.data.date }}
+              <br>Number of Travellers: {{ this.data.count }}
             </p>
-            <p>Free cancellation before 19 April</p>
+            <p>Free cancellation within 5days of Travelling</p>
           </div>
         </div>
   
@@ -80,11 +79,11 @@
           </div>
           <div class="trip-payit">
             <span>Subtotal:</span>
-            <span>$84.09</span>
+            <span>${{ this.data.price * this.data.count }}</span>
           </div>
           <div class="trip-payit">
             <span><strong>Total:</strong></span>
-            <span><strong>$84.09</strong></span>
+            <span><strong>${{ this.data.price * this.data.count }}</strong></span>
           </div>
         </div>
 

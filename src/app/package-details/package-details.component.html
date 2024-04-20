@@ -93,11 +93,13 @@
     <!-- <p class="pd">DETAILS ABOUT THE PACKAGE</p> -->
     <div class="images">
         <div class="pdheading">
-            <h1>(Mysuru) Mysore Day Out - A Royal Experience Private Tour from Bangalore </h1>
+            <!-- <h1>(Mysuru) Mysore Day Out - A Royal Experience Private Tour from Bangalore </h1> -->
+            <h1>{{ this.data.title }}</h1>
             <p>Recommended by 98% of travellers</p><br>
         </div>
         <div class="pdimage1">
-            <img src="../../assets/images/an1.jpg" style="border-radius: 20px;">
+            <!-- <img src="../../assets/images/an1.jpg" style="border-radius: 20px;"> -->
+            <img src="{{ this.data.imageUrl }}" style="border-radius: 20px;">
         </div>
         <div class="pdimage2">
             <img src="../../assets/images/an2.jpg" style="border-radius: 20px;" alt="" width="450px" height="230px">
@@ -120,11 +122,11 @@
         <div class="calendar-container">
             <div class="calendar">
                 <label for="calendar">Choose date:</label>
-                <input type="date" id="calendar">
+                <input type="date" name="date" [(ngModel)]="this.inpDate">
             </div>
             <div class="people-selection">
                 <span>Number of People:</span>
-                <select>
+                <select [(ngModel)]="this.ppl">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -133,27 +135,25 @@
         </div>
         <div [ngClass]="{'selected': selectedDiv === 0, 'disabled': selectedDiv !== 0}" (click)="selectDiv(0)"
             class="tripsel0">
-            <h3 style="font-size: 18px;">(Mysuru) Mysore Day Out - A Royal Experience Private Tour from Bangalore</h3>
+            <h3 style="font-size: 18px;">{{ this.data.title }}</h3>
             <p><strong>Duration:</strong> 12 hours</p>
-            <p><strong>Lunch:</strong> Included</p>
             <p><strong>Pickup:</strong> Included</p>
             <p>(No additional taxes or booking fees)</p><br>
         </div>
 
         <div [ngClass]="{'selected': selectedDiv === 1, 'disabled': selectedDiv !== 1}" (click)="selectDiv(1)"
             class="tripsel">
-            <h3 style="font-size: 18px; margin-bottom: 5px; line-height:23px;">Unveiling the Art of
-                Mysore Silk: A Journey from Bangalore to Explore Silk Weaving and the Magnificent Palace</h3>
-            <p><strong>Duration:</strong> 12 hours</p>
-            <p><strong>Lunch:</strong> Included</p>
+            <h3 style="font-size: 18px; margin-bottom: 5px; line-height:23px;">Exclusive Journey</h3>
+            <p><strong>Duration:</strong> 24 hours</p>
+            <p><strong>Food:</strong> Included (3 Times a Day)</p>
             <p><strong>Pickup:</strong> Included</p>
             <p>(No additional taxes or booking fees)</p><br>
         </div>
-        <button [routerLink]="['/login']">Reserve Now</button>
+        <button (click)="pushData()">Reserve Now</button>
     </div>
 
     <div class="guide">
-        <h3>from <span class="price">₹11,107.82 </span> per adult (price varies by group size)</h3>
+        <h3>from <span class="price">${{ this.data.price }} </span> per adult (price varies by group size)</h3>
     </div>
 
     <div class="info">

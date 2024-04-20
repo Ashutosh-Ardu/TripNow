@@ -6,6 +6,8 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
+
 export class AppComponent implements OnInit{
   title = 'travel';
 
@@ -17,6 +19,5 @@ export class AppComponent implements OnInit{
     localStorage.setItem("paid","false")
     localStorage.setItem('isLoggedIn','false') 
     window.isLoggedIn = false
-    window.paid = false
   }
 }

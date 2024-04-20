@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoGalleryComponent } from '../photo-gallery/photo-gallery.component';
 import { LowestPriceDialogComponent } from '../lowest-price-dialog/lowest-price-dialog.component';
@@ -15,7 +15,19 @@ export class PackageDetailsComponent implements OnInit {
   location?: string;
   boxId?: string;
   // boxIndex?: number;
+  inpDate: Date = new Date();
   packageId?: number;
+  ppl: number;
+  data:any;
+
+  pushData(){
+    console.log(this.data)
+    this.data['date'] =  this.inpDate;
+    this.data['count'] = this.ppl;
+    
+    this.data['payment'] = 'false';
+    this.router.navigate(['/login'], { state: { package: this.data } });
+  }
 
   openLowestPriceDialog() {
     this.dialog.open(LowestPriceDialogComponent);
@@ -29,7 +41,9 @@ export class PackageDetailsComponent implements OnInit {
     this.dialog.open(CancelComponent);
   }
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, public dialog: MatDialog,private router:Router) { 
+    window.scrollTo(0,0)
+  }
 
   selectedDiv: number | undefined;
 
@@ -49,6 +63,7 @@ export class PackageDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data = history.state.package;
     this.route.params.subscribe(params => {
       // this.boxIndex = +params['id'];
       this.packageId = +params['id'];

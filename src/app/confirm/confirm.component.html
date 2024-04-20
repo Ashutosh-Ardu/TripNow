@@ -12,7 +12,13 @@
         <div class="success-message">
             <h1>Your transaction is successful</h1>
             <h3>Your transaction id is {{ transId }}</h3>
-            <h4>Your Package is booked</h4>
+            <h4>Name: {{ this.data.firstName + " " + this.data.lastName }}</h4>
+            <h4>Email: {{ this.data.email }}</h4>
+            <h4>Date of Travel: {{ this.data.date }}</h4>
+            <h4>Travellers: {{ this.data.count }}</h4>
+            <h4>Package: {{ this.data.title }}</h4>
+            <h4>Amount: {{ this.data.price * this.data.count }}</h4>
+            <h4>Your Payment Status: {{ this.data.payment }} </h4>
         </div>
 
         <div class="go-back">

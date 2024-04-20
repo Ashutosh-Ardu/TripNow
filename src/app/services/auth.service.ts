@@ -13,12 +13,12 @@ export class AuthService {
   ) {}
 
   // login method
-  login(email: string,password: string){
+  login(email: string,password: string,data:any){
     this.fireauth.signInWithEmailAndPassword(email,password).then(() => {
       localStorage.setItem('isLoggedIn','true')
       window.isLoggedIn = true
 
-      this.router.navigate(['/booking'])
+      this.router.navigate(['/booking'], { state: { package: data } });
     },err => {
       // alert(err.message)
       console.log(err.code)
@@ -26,7 +26,7 @@ export class AuthService {
       if(t === "auth/email-already-in-use") alert("Email Already Exists")
       if(t === "auth/invalid-credential") alert("Invalid Credentials")
       if(t === "auth/invalid-password") alert("Password should have minimum length: 6")
-      this.router.navigate(['/login'])
+      this.router.navigate(['/packages'])
     })
   }
 
@@ -53,7 +53,7 @@ export class AuthService {
       localStorage.setItem('isLoggedIn','false')
       window.isLoggedIn = false
       alert('Session Logged Out!!')
-      this.router.navigate(['/login'])
+      this.router.navigate(['/packages'])
     },err => {
       alert(err.message)
     })

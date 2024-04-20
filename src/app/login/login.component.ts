@@ -10,6 +10,8 @@ import {NgAlertBoxComponent, NgAlertBoxService} from "ng-alert-box-popup";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent{
+  data: any;
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -17,7 +19,8 @@ export class LoginComponent{
     private fb1: NonNullableFormBuilder,
     private auth :AuthService,
     private alerts: NgAlertBoxService
-  ){}
+  ){
+  }
   
 
   logForm = this.fb.group({
@@ -56,8 +59,8 @@ export class LoginComponent{
     if (!this.logForm.valid || !email || !pwd) {
       return;
     }
-
-    this.auth.login(email,pwd)
+    this.data = history.state.package
+    this.auth.login(email,pwd,this.data)
   }
 
   register(){

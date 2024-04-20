@@ -9,12 +9,13 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './payment.component.scss'
 })
 export class PaymentComponent {
+  data:any;
   @ViewChild('paymentRef',{static:true}) paymentRef: ElementRef;
 
 
   ngOnInit(): void {
     // connecting to Paypal
-  localStorage.setItem("transId","$18891910951$%")
+      this.data = history.state.package
       window.paypal.Buttons(
         {
           style:{
@@ -28,7 +29,7 @@ export class PaymentComponent {
               purchase_units: [
                 {
                   amount: {
-                    value: this.amount.toString(),
+                    value: this.data.price,
                     currency_code: 'USD'
                   }
                 }
@@ -40,7 +41,8 @@ export class PaymentComponent {
               if(details.status === 'COMPLETED'){
                 localStorage.setItem("paid","true")
                 window.paid = true
-                this.router.navigate(['confirm'])
+                this.data['payment'] = 'Completed'
+                this.router.navigate(['confirm'], {state: {package: this.data}})
               }
             })
           },
@@ -57,6 +59,5 @@ export class PaymentComponent {
     private router:Router,
     private store: AuthService
   ){
-    this.amount = '7035.65'
   }
 }

@@ -15,7 +15,8 @@
                 <p>Sorry, no destinations match your filter.</p>
             </div>
             <div *ngFor="let box of filteredBoxes" class="box">
-                <a [routerLink]="['/package-details', box.id]">
+                <!-- this.data = history.state.package; -->
+                <a (click)="selectData(box)">
                     <div class="image">
                         <img [src]="box.imageUrl" alt="">
                         <div class="save">

@@ -93,7 +93,7 @@
           </div>
   
           <div class="submit-btn">
-            <button type="submit" class="contact-btn" (click)="onSubmit()" [disabled]="!detForm.valid" routerLink="/payment">Next</button>
+            <button type="submit" class="contact-btn" (click)="onSubmit()" [disabled]="!detForm.valid">Next</button>
           </div>
         </form>
   
@@ -110,15 +110,14 @@
         <hr>
         <div class="trip-detail">
           <div class="trip-pic">
-            <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-360x240/07/b4/3f/5e.jpg" alt="Trip">
+            <img src="{{ this.data.imageUrl }}" alt="Trip">
           </div>
           <div class="trip-det">
-            <h3><strong>Koh Hey in Half a Day</strong></h3>
-            <p>Koh Hey in Half a Day - 12:00 pm
-              Saturday, 20 April, 2024
-              <br>2 Adults
+            <h4><strong>{{ this.data.title }}</strong></h4>
+            <p>Day of Travel: {{ this.data.date }}
+              <br>Number of Travellers: {{ this.data.count }}
             </p>
-            <p>Free cancellation before 19 April</p>
+            <p>Free cancellation within 5 days of Booking</p>
           </div>
         </div>
   
@@ -129,11 +128,11 @@
           </div>
           <div class="trip-payit">
             <span>Subtotal:</span>
-            <span>₹7,060.08</span>
+            <span>${{ this.data.price * this.data.count }}</span>
           </div>
           <div class="trip-payit">
             <span><strong>Total:</strong></span>
-            <span><strong>₹7,060.08</strong></span>
+            <span><strong>$ {{ this.data.price * this.data.count }}</strong></span>
           </div>
         </div>
       </div>

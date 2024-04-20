@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -7,6 +8,9 @@ import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@ang
   styleUrl: './booking.component.scss'
 })
 export class BookingComponent implements OnInit{
+  data:any;
+
+  constructor(private router:Router){}
 
   detForm = new FormGroup({
     fname : new FormControl('',[Validators.pattern('[A-Za-z]{1,20}'),Validators.required]),
@@ -18,7 +22,7 @@ export class BookingComponent implements OnInit{
   })
   
   ngOnInit(): void {
-    
+    this.data = history.state.package
   }
 
   get fCon(){
@@ -28,5 +32,10 @@ export class BookingComponent implements OnInit{
 
   onSubmit(){
     console.log(this.detForm);
+    console.log(this.data)
+    this.data['firstName'] = this.detForm.value.fname
+    this.data['lastName'] = this.detForm.value.lname
+    this.data['email'] = this.detForm.value.email
+    this.router.navigate(['/payment'], { state: { package: this.data } });
   }
 }

@@ -61,7 +61,8 @@ header {
     padding-left: 50px; /* Set Trip text to white */
 }
 .content {
-    margin-top: 100px; /* Adjust this value to leave space for the navbar */
+    margin-top: 0; /* Adjust this value to leave space for the navbar */
+    width: 60%;
 }
 .success-message {
     background-color: #d4edda;
@@ -81,10 +82,14 @@ header {
     font-size: 1.5em;
 }
 
+.success-message h3{
+    font-size: 1.3em;
+}
+
 .go-back{
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 .go-back ul,li{

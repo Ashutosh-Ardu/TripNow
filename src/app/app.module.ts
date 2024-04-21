@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,7 +39,9 @@ import {environment} from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {AngularFireModule} from '@angular/fire/compat'
+import {AngularFireModule} from '@angular/fire/compat';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import {AngularFireModule} from '@angular/fire/compat'
     NotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
     AppRoutingModule,
     RouterModule,
     MatDialogModule,

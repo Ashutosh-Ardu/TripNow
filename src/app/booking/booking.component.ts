@@ -31,11 +31,14 @@ export class BookingComponent implements OnInit{
 
 
   onSubmit(){
-    console.log(this.detForm);
     console.log(this.data)
-    this.data['firstName'] = this.detForm.value.fname
-    this.data['lastName'] = this.detForm.value.lname
+    let fname = this.detForm.value.fname
+    let lname = this.detForm.value.lname
+
+    this.data['firstName'] = (fname) ? fname[0].toUpperCase() + fname.slice(1) :fname;
+    this.data['lastName'] = (lname) ? lname[0].toUpperCase()+lname.slice(1) :lname;
     this.data['email'] = this.detForm.value.email
+    this.data['phno'] = this.detForm.value.phno
     this.router.navigate(['/payment'], { state: { package: this.data } });
   }
 }

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,7 @@ export class AuthService {
   constructor(
     private fireauth : AngularFireAuth,
     private router: Router,
+    private toastr: ToastrService
   ) {}
 
   // login method
@@ -19,14 +23,15 @@ export class AuthService {
       window.isLoggedIn = true
 
       this.router.navigate(['/booking'], { state: { package: data } });
+      this.toastr.success("Login Successful","Session Log")
     },err => {
       // alert(err.message)
       console.log(err.code)
       let t = err.code
-      if(t === "auth/email-already-in-use") alert("Email Already Exists")
-      if(t === "auth/invalid-credential") alert("Invalid Credentials")
-      if(t === "auth/invalid-password") alert("Password should have minimum length: 6")
-      this.router.navigate(['/packages'])
+      if(t === "auth/email-already-in-use") this.toastr.error("Email Already Exists","Error Log")
+      if(t === "auth/invalid-credential") this.toastr.error("Invalid Credentials","Error Log")
+      if(t === "auth/invalid-password") this.toastr.error("Minimum Password Length: 6","Error Log")
+      // this.router.navigate(['/login'])
     })
   }
 
@@ -35,15 +40,16 @@ export class AuthService {
   register(email:string, password: string){
     this.fireauth.createUserWithEmailAndPassword(email,password).then(() => {
       alert('Successful Login')
-      this.router.navigate(['/login'])
+      this.toastr.success("User Registered","Session Log")
+      // this.router.navigate(['/login'])
     },err => {
       // alert(err.message)
       console.log(err.code)
       let t = err.code
-      if(t === "auth/email-already-in-use") alert("Email Already Exists")
-        if(t === "auth/invalid-credential") alert("Invalid Credentials")
-        if(t === "auth/invalid-password") alert("Password should have minimum length: 6")
-      this.router.navigate(['/login'])
+      if(t === "auth/email-already-in-use") this.toastr.error("Email Already Exists","Error Log")
+        if(t === "auth/invalid-credential") this.toastr.error("Invalid Credentials","Error Log")
+        if(t === "auth/invalid-password") this.toastr.error("Minimum Password Length: 6","Error Log")
+      // this.router.navigate(['/login'])
     })
   }
 
@@ -52,10 +58,10 @@ export class AuthService {
     this.fireauth.signOut().then(() => {
       localStorage.setItem('isLoggedIn','false')
       window.isLoggedIn = false
-      alert('Session Logged Out!!')
       this.router.navigate(['/packages'])
+      this.toastr.warning("User Logged Out!","Session Log")
     },err => {
-      alert(err.message)
+      this.toastr.error(err.message,"Error Log")
     })
   }
 }

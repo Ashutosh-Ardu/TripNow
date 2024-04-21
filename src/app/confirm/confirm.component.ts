@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './confirm.component.scss'
 })
 export class ConfirmComponent {
-  transId = Math.random().toString(16).slice(2)
   data:any = history.state.package
 }

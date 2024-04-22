@@ -1,5 +1,5 @@
 # TripNow (Relanto Angular Assignment)
-TripNow Website with 6 (12 Normal  & Exclusive) travel packages. 
+TripNow Website with 8 (16 Normal  & Exclusive) travel packages. 
 
 Made using :
 - Angular 17

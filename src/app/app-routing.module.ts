@@ -18,6 +18,7 @@ import { revAuthGuard } from './guards/rev-auth.guard';
 import { payGuard } from './guards/pay.guard';
 import { revPayGuard } from './guards/rev-pay.guard';
 import { LadakhComponent } from './ladakh/ladakh.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'home',component: HomeComponent},
@@ -27,13 +28,14 @@ const routes: Routes = [
   { path: 'review', component: ReviewComponent },
   // { path: 'package-details/:location', component: PackageDetailsComponent },
   { path: 'package-details/:id', component: PackageDetailsComponent },
+  { path: 'profile', component: ProfileComponent },
   {path: "confirm", component: ConfirmComponent,canActivate: [payGuard]},
   {path: "booking", component: BookingComponent,canActivate: [authGuard]},
   {path: "demo", component: DemoComponent},
   {path: "payment", component: PaymentComponent,canActivate: [authGuard,revPayGuard]},
   {path: "login", component: LoginComponent,canActivate: [revAuthGuard]},
   {path: "register", component: RegisterComponent,canActivate: [revAuthGuard]},
-  {path: "**", component: NotFoundComponent},
+  {path: "**",component: NotFoundComponent},
 ];
 
 @NgModule({

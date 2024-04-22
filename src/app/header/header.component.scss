@@ -30,7 +30,6 @@ header .navbar a {
   font-size: 2rem;
   margin: 0 3.5rem; 
   position: relative;
-  right: 280px;
   font-weight: bold;
 
   &.active {
@@ -46,13 +45,14 @@ header .navbar a:hover {
 
 header .icons i {
   font-size: 2.5rem;
-  color: #000000;
+  color: white;
   cursor: pointer;
   margin-right: 2rem;
+  margin-top: 15%;
 }
 
 header .icons i:hover {
-  color: white;
+  color: gold;
 }
 
 header .search-bar-container {

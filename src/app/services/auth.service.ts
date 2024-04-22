@@ -53,6 +53,19 @@ export class AuthService {
     })
   }
 
+  // check if user is signedIn or not
+  check(){
+    var tag = false
+    this.fireauth.onAuthStateChanged(function(user){
+      if(user){
+        tag = true
+      }else{
+        tag = false
+      }
+    })
+    return tag
+  }
+
   // signout method
   logout(){
     this.fireauth.signOut().then(() => {

@@ -2,7 +2,7 @@
 <div class="top-bread">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item done">User Details</li>
+            <li class="breadcrumb-item">User Details</li>
             <li class="breadcrumb-item cur">Payment Details</li>
         </ol>
     </nav>
@@ -22,9 +22,10 @@
   
       <div class="payment-det">
         <h1><strong>Total Price: ${{ this.data.price * this.data.count }}</strong></h1>
+        <br>
         <ul>
           <li><span class="material-symbols-outlined">schedule</span></li>
-          <li><h4><strong>Free cancellation within 5 days of Booking</strong></h4></li>
+          <li style="margin-top: 1.1%;"><h4><strong>Free cancellation within 5 days of Booking</strong></h4></li>
         </ul>
           
       </div>
@@ -68,7 +69,7 @@
             <p>Day of Travel: {{ this.data.date }}
               <br>Number of Travellers: {{ this.data.count }}
             </p>
-            <p>Free cancellation within 5days of Travelling</p>
+            <p>Free cancellation within 5 days of Travelling</p>
           </div>
         </div>
   

@@ -136,8 +136,8 @@
                 <input name="count" type="number" [(ngModel)]="this.ppl" required min="1" max="10" ngModel ngNativeValidate #cnt="ngModel">
             </div>
             <div class="people-selection">
-                <label class="validate" *ngIf="cnt.dirty && cnt.value == null">*Number of Travellers required.</label>
-                <label class="validate" *ngIf="cnt.dirty && cnt.value != null && cnt.invalid">*Travellers Count, Min:1 - Max:10</label>
+                <label class="validate" *ngIf="cnt.dirty && cnt.value == null">Number of Travellers required.</label>
+                <label class="validate" *ngIf="cnt.dirty && cnt.value != null && cnt.invalid">Travellers Count, Min:1 - Max:10</label>
             </div>
         </div>
         <!-- the experience toggle -->

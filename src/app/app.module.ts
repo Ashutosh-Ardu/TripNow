@@ -45,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LadakhComponent } from './ladakh/ladakh.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     RegisterComponent,
     ContactusComponent,
     NotFoundComponent,
-    LadakhComponent
+    LadakhComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserAnimationsModule, // required animations module

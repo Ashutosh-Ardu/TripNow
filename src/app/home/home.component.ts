@@ -69,4 +69,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // populating data dynamically
+  boxes = [
+    {
+      id: 1,
+      
+    }
+  ]
+
 }

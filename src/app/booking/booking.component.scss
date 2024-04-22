@@ -5,8 +5,8 @@
 .top-bread{
     display: flex;
     justify-content: center;
-    padding-top: 50px;
-    font-size: 2em;
+    padding-top: 30px;
+    font-size: 2.5em;
     margin-top: 5%;
 }
 
@@ -103,6 +103,10 @@
     text-transform: capitalize;
 }
 
+input{
+    padding-left: 1%;
+}
+
 .book-card{
     /* border: yellow 1px solid; */
     width: 39%;
@@ -140,7 +144,7 @@
 .trip-pic img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 .trip-det{
@@ -151,6 +155,7 @@
     display: flex;
     justify-content: space-between;
     margin: 1%;
+    font-size: 1.3em;
 }
 
 input{

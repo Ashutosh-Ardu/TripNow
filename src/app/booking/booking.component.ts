@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-booking',
@@ -10,13 +12,15 @@ import { Router } from '@angular/router';
 export class BookingComponent implements OnInit{
   data:any;
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private auth:AuthService){
+    console.log(this.auth.check())
+  }
 
   detForm = new FormGroup({
     fname : new FormControl('',[Validators.pattern('[A-Za-z]{1,20}'),Validators.required]),
     lname : new FormControl('',[Validators.pattern('[A-Za-z]{1,20}'),Validators.required]),
     email : new FormControl('',[Validators.email,Validators.required]),
-    phno : new FormControl('',[Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.required]),
+    phno : new FormControl('',[Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.required,Validators.maxLength(10)]),
     doj: new FormControl('',Validators.required),
     code : new FormControl(''),
   })

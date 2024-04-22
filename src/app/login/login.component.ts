@@ -20,6 +20,7 @@ export class LoginComponent{
     private auth :AuthService,
     private alerts: NgAlertBoxService
   ){
+    window.scrollTo(0,0);
   }
   
 

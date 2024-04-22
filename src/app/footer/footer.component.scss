@@ -1,3 +1,7 @@
+*{
+  text-transform: capitalize;
+}  
+  
   .footer{
     background:#2f3542;
   }
@@ -5,18 +9,22 @@
   .footer .box-container{
     display: flex;
     flex-wrap: wrap;
-    gap:1.5rem;
+    gap:2rem;
+    justify-content: space-around;
   }
   
   .footer .box-container .box{
     padding:1rem 0;
     flex:1 1 25rem;
   }
-  
   .footer .box-container .box h3{
     font-size: 2.5rem;
     padding:.7rem 0;
     color:#fff;
+  }
+
+  .boxtp{
+    padding-left: 10px;
   }
   
   .footer .box-container .box p{

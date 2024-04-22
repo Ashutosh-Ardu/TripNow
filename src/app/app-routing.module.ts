@@ -17,12 +17,13 @@ import { authGuard } from './guards/auth.guard';
 import { revAuthGuard } from './guards/rev-auth.guard';
 import { payGuard } from './guards/pay.guard';
 import { revPayGuard } from './guards/rev-pay.guard';
+import { LadakhComponent } from './ladakh/ladakh.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home',component: HomeComponent},
   { path: '', component: HomeComponent },
   { path: 'packages', component: PackageComponent },
-  { path: 'gallery', component: GalleryComponent },
+  { path: 'bike-trips', component: GalleryComponent },
   { path: 'review', component: ReviewComponent },
   // { path: 'package-details/:location', component: PackageDetailsComponent },
   { path: 'package-details/:id', component: PackageDetailsComponent },

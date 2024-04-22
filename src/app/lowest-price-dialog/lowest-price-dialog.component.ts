@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-lowest-price-dialog',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './lowest-price-dialog.component.scss'
 })
 export class LowestPriceDialogComponent {
-
+  @ViewChild('containsBox', { static: true }) containsBox!: ElementRef;
+ 
+  closeBox() {
+    this.containsBox.nativeElement.style.display = 'none';
+  }
 }

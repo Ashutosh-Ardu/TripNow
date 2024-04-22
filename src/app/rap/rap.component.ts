@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-rap',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './rap.component.scss'
 })
 export class RapComponent {
-
+  showBox: boolean = true;
+  @ViewChild('containsBox', { static: true }) containsBox!: ElementRef;
+ 
+  closeBox() {
+    this.containsBox.nativeElement.style.display = 'none';
+  }
 }

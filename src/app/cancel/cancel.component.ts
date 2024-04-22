@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cancel',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './cancel.component.scss'
 })
 export class CancelComponent {
-
+  @ViewChild('containsBox', { static: true }) containsBox!: ElementRef;
+ 
+  closeBox() {
+    this.containsBox.nativeElement.style.display = 'none';
+  }
 }

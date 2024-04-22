@@ -99,7 +99,7 @@
         </div>
         <div class="pdimage1">
             <!-- <img src="../../assets/images/an1.jpg" style="border-radius: 20px;"> -->
-            <img src="{{ this.data.imageUrl }}" style="border-radius: 20px;">
+            <img src="{{ this.data.imageUrl }}" style="border-radius: 20px; width: 722px; height: 486px;">
         </div>
         <div class="pdimage2">
             <img src="../../assets/images/an2.jpg" style="border-radius: 20px;" alt="" width="450px" height="230px">
@@ -116,41 +116,60 @@
             the Sane Museum and Somnathpur Temple, the SandMuseum and the Chamundi Hills, or Dariya Daula and the
             Colonel Belly Dungeon.</p>
     </div>
-    <div class="text1" style="padding: 25px;">
-        <h2>Reserve your spot</h2>
+    <form class="text1" style="padding: 25px;" #f="ngForm">
+        <h2>Choose your Experience</h2>
         <!-- Calendar -->
         <div class="calendar-container">
             <div class="calendar">
-                <label for="calendar">Choose date:</label>
-                <input type="date" name="date" [(ngModel)]="this.inpDate">
+
+                <label for="travelDate">Start Date:</label>
+            </div>
+            <div class="calendar">
+                <input type="date" [min]="minDate" [(ngModel)] = "this.inpDate" name="dot" ngModel required ngNativeValidate>
+            </div>
+
+            <div class="people-selection">
+                <label>Number of People:</label>
+            </div>
+
+            <div class="people-selection">
+                <input name="count" type="number" [(ngModel)]="this.ppl" required min="1" max="10" ngModel ngNativeValidate #cnt="ngModel">
             </div>
             <div class="people-selection">
-                <span>Number of People:</span>
-                <select [(ngModel)]="this.ppl">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
+                <label class="validate" *ngIf="cnt.dirty && cnt.value == null">*Number of Travellers required.</label>
+                <label class="validate" *ngIf="cnt.dirty && cnt.value != null && cnt.invalid">*Travellers Count, Min:1 - Max:10</label>
             </div>
         </div>
-        <div [ngClass]="{'selected': selectedDiv === 0, 'disabled': selectedDiv !== 0}" (click)="selectDiv(0)"
-            class="tripsel0">
+        <!-- the experience toggle -->
+
+        <div [ngClass]="{'selected': this.selectedDiv === 0, 'disabled': this.selectedDiv !== 0}"
+            class="tripsel0" (click)="selectDiv(this.data.id)">
             <h3 style="font-size: 18px;">{{ this.data.title }}</h3>
             <p><strong>Duration:</strong> 12 hours</p>
             <p><strong>Pickup:</strong> Included</p>
             <p>(No additional taxes or booking fees)</p><br>
         </div>
 
-        <div [ngClass]="{'selected': selectedDiv === 1, 'disabled': selectedDiv !== 1}" (click)="selectDiv(1)"
-            class="tripsel">
+        <div [ngClass]="{'selected': this.selectedDiv === 1, 'disabled': this.selectedDiv !== 1}"
+            class="tripsel" (click)="selectDiv(this.data.id)">
             <h3 style="font-size: 18px; margin-bottom: 5px; line-height:23px;">Exclusive Journey</h3>
             <p><strong>Duration:</strong> 24 hours</p>
             <p><strong>Food:</strong> Included (3 Times a Day)</p>
             <p><strong>Pickup:</strong> Included</p>
             <p>(No additional taxes or booking fees)</p><br>
         </div>
-        <button (click)="pushData()">Reserve Now</button>
-    </div>
+
+        <!-- <form *ngFor="let tripData of tripDataArray; let i = index">
+            <div [ngClass]="{'selected': selectedDiv === tripData.id, 'disabled': selectedDiv !== tripData.id}" (click)="selectDiv(tripData.id)" class="tripsel">
+              <h3 style="font-size: 18px; margin-bottom: 5px; line-height:23px;">{{ tripData.title }}</h3>
+              <p><strong>Duration:</strong> {{ tripData.duration }}</p>
+              <p><strong>Lunch:</strong> {{ tripData.lunch }}</p>
+              <p><strong>Pickup:</strong> {{ tripData.pickup }}</p>
+              <p>{{ tripData.note }}</p><br>
+            </div>
+          </form> -->
+        <button (click)="pushData()" [disabled]="!f.valid">Book Now</button>
+    </form>
 
     <div class="guide">
         <h3>from <span class="price">${{ this.data.price }} </span> per adult (price varies by group size)</h3>
@@ -225,3 +244,49 @@
         </div>
     </div>
 </div>
+
+<mat-expansion-panel style="box-shadow: none;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h1>What's included </h1>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the content of the panel.</p>
+</mat-expansion-panel>
+
+<mat-expansion-panel style="box-shadow: none;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h1>What to expect</h1>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the content of the panel.</p>
+</mat-expansion-panel>
+
+<mat-expansion-panel style="box-shadow: none;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h1>Departure and return
+            </h1>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the content of the panel.</p>
+</mat-expansion-panel>
+
+<mat-expansion-panel style="box-shadow: none;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h1>Additional Information</h1>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the content of the panel.</p>
+</mat-expansion-panel>
+
+<mat-expansion-panel style="box-shadow: none;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <h1>Help</h1>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the content of the panel.</p>
+</mat-expansion-panel>

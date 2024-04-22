@@ -28,7 +28,7 @@
     position: fixed;
     bottom: 10px;
     right: 15px;
-    border: 3px solid #f1f1f1;
+    // border: 3px solid #f1f1f1;
     z-index: 9;
 }
 
@@ -36,9 +36,8 @@
 .form-container {
     max-width: 250px;
     padding: 10px;
-    border: 1px white;
     border-radius: 5px;
-    background-color: white;
+    background-color: rgb(242, 242, 242);
 }
 
 /* Full-width input fields */
@@ -49,7 +48,8 @@ textarea {
     padding: 8px;
     margin: 2px 0 8px 0;
     border: none;
-    background: #f1f1f1;
+    background: #ffffff;
+    border: 2px black;
 }
 
 /* When the inputs get focus, do something */
@@ -81,7 +81,7 @@ textarea:focus {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-    background-color: red;
+    background-color: gold;
 }
 
 /* Add some hover effects to buttons */

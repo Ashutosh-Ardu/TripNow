@@ -1,58 +1,3 @@
-// .pd {
-//     font-size: xx-large;
-//     text-align: center;
-//     margin: 100px 0 100px;
-// }
-
-// .details-container {
-//     padding: 20px;
-//     border-radius: 5px;
-//     height: 1100px;
-// }
-
-// .header {
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-//     margin-bottom: 10px;
-// }
-
-// .tripnow {
-//     font-weight: bold;
-//     font-size: 24px;
-//     margin-left: 10px;
-// }
-
-// .search-bar {
-//     padding: 10px;
-//     border: 1px solid #ccc;
-//     border-radius: 20px;
-//     width: 300px;
-//     margin-right: 70px;
-// }
-
-
-// .trips-link {
-//     text-decoration: none;
-//     color: #007bff;
-// }
-
-// .actions a {
-//     position: relative;
-//     left: 50px;
-//     right: 50px;
-//     margin-right: 10px;
-// }
-
-// .actions {
-//     display: flex;
-// }
-
-// .trips-link {
-//     text-decoration: none;
-//     color: #007bff;
-// }
-
 .content-container {
     padding: 75px 40px 40px;
     box-sizing: border-box;
@@ -155,7 +100,7 @@
     position: relative;
     bottom: 1350px;
     width: 700px;
-    height: 200px;
+    // height: 200px;
     margin-top: 35px;
 }
 
@@ -172,6 +117,7 @@
     font-size: 25px;
     text-transform: none;
     margin-bottom: 25px;
+    font-weight: bold;
 }
 
 .text p {
@@ -180,23 +126,44 @@
 
 .calendar-container {
     display: flex;
-    align-items: center;
+    // align-items: center;
+    flex-direction: column;
+    // align-items: start;
     margin-bottom: 1rem;
 }
 
-.calendar,
-.people-selection {
-    display: flex;
-    align-items: center;
-}
+// .calendar,
+// .people-selection {
+//     display: flex;
+//     align-items: center;
+// }
 
 .calendar {
-    margin-right: 1rem;
+    // margin-right: 1rem;
+    margin: 1%;
+}
+
+.calendar input{
+    width: 100%;
+    border: 1px rgba(0, 0, 0, 0.404) solid;
+    border-radius: 20px;
+    font-size: 1.4em;
 }
 
 .people-selection {
-    margin: 0 0 0 auto;
+    // margin: 0 0 0 auto;
     font-size: 13px;
+    margin: 1%;
+    font-weight: bold;
+}
+
+.people-selection input{
+    // margin: 0 0 0 auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.432);
+    border-radius: 20px;
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .calendar {
@@ -230,7 +197,7 @@
     width: 450px;
     height: auto;
     left: 600px;
-    bottom: 1550px;
+    bottom: 1486px;
     border-radius: 20px;
     margin-left: 130px;
 }
@@ -419,11 +386,90 @@ button {
     cursor: pointer;
 }
 
+button:disabled{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 button:hover {
     background-color: rgb(255, 239, 96);
 }
 
-.disabled {
-    opacity: 0.5;
-    /* or any other style for disabling */
+.validate{
+    color: red;
 }
+
+.mat-expansion-panel {
+    // border: 1px solid #ccc;
+    // border-radius: 4px;
+    // margin-bottom: 1px;
+    width: 702px;
+    position: relative;
+    bottom: 1940px;
+    border-bottom: 1px solid #9f9f9f;
+    margin-left: 40px;
+}
+
+.mat-expansion-panel-header {
+    padding: 12px 24px;
+}
+
+h1 {
+    font-size: 16px;
+    color: #000000;
+}
+
+.mat-expansion-panel-content {
+    padding: 16px 24px;
+}
+
+.people-counter {
+    display: flex;
+    align-items: center;
+}
+
+.people-counter button {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.people-counter .count {
+    margin: 0 8px;
+    font-size: 16px;
+}
+
+/* styles.scss */
+
+.form-section {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    font-size: medium;
+    margin-top: 5px;
+  }
+  
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    text-transform: none;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: small;
+  }

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { BookComponent } from './book/book.component';
 import { PackageComponent } from './package/package.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -42,7 +43,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {AngularFireModule} from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { LadakhComponent } from './ladakh/ladakh.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -67,13 +69,15 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     RegisterComponent,
     ContactusComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LadakhComponent
   ],
   imports: [
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     AppRoutingModule,
     RouterModule,
+    MatTabsModule,
     MatDialogModule,
     MatIconModule,
     CommonModule,
@@ -87,6 +91,7 @@ import { ToastrModule } from 'ngx-toastr';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     MatToolbarModule,
+    MatExpansionModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,

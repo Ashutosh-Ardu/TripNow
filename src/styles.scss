@@ -17,11 +17,6 @@
   transition: all .2s linear;
 }
 
-*::selection {
-  background: var(--orange);
-  color: #fff;
-}
-
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -53,7 +48,7 @@ section {
 .btn {
   display: inline-block;
   margin-top: 1rem;
-  background: var(--orange);
+  // background: var(--orange);
   color: #fff;
   padding: .8rem 3rem;
   border: .2rem solid var(--orange);
@@ -64,7 +59,7 @@ section {
 
 .btn:hover {
   background: rgb(237, 237, 237);
-  color: var(--orange);
+  // color: var(--orange);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

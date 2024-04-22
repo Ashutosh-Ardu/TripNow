@@ -31,7 +31,7 @@ export class PaymentComponent {
               purchase_units: [
                 {
                   amount: {
-                    value: this.data.price,
+                    value: this.data.price * this.data.count,
                     currency_code: 'USD'
                   }
                 }

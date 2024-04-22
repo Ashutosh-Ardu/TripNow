@@ -5,6 +5,8 @@ import { PhotoGalleryComponent } from '../photo-gallery/photo-gallery.component'
 import { LowestPriceDialogComponent } from '../lowest-price-dialog/lowest-price-dialog.component';
 import { RapComponent } from '../rap/rap.component';
 import { CancelComponent } from '../cancel/cancel.component';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { TripService, TripData } from '../services/trip.service';
 
 @Component({
   selector: 'app-package-details',
@@ -15,10 +17,13 @@ export class PackageDetailsComponent implements OnInit {
   location?: string;
   boxId?: string;
   // boxIndex?: number;
-  inpDate: Date = new Date();
+  inpDate: Date;
   packageId?: number;
   ppl: number;
   data:any;
+  minDate: string;
+  generatedDates: string[] = [];
+  tripDataArray: TripData[];
 
   pushData(){
     console.log(this.data)
@@ -41,18 +46,18 @@ export class PackageDetailsComponent implements OnInit {
     this.dialog.open(CancelComponent);
   }
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog,private router:Router) { 
-    window.scrollTo(0,0)
+  constructor(private route: ActivatedRoute, public dialog: MatDialog,private router:Router,private tripService: TripService) { 
+    this.tripDataArray = tripService.tripDataArray;
+    window.scrollTo(0,0);
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
+    this.minDate = today.toISOString().split('T') [0];
   }
 
   selectedDiv: number | undefined;
 
   selectDiv(index: number) {
-    if (this.selectedDiv === index) {
-      this.selectedDiv = undefined; // Toggle off if already selected
-    } else {
-      this.selectedDiv = index;
-    }
+    this.selectedDiv = index;
   }
 
   openPhotoGallery(): void {
@@ -71,4 +76,9 @@ export class PackageDetailsComponent implements OnInit {
       // Use the location parameter to fetch data or perform other operations
     });
   }
+  // onTravelDateChange() {
+  //   this.enteredDate = this.packageForm.get('travelDate')!.value;
+  //   this.updateDates();
+  // }
+  
 }

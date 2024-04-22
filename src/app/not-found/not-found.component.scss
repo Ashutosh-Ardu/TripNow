@@ -1,108 +1,45 @@
-.success-warning{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
-}
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgb(255, 226, 36);
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 9%;
-  }
-
-  header .logo {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: #000000;
-  }
-
-  header .logo span {
-    color: white;
-  }
-
-
-  #menu-bar {
-    color: #fff;
-    border: .1rem solid #fff;
-    border-radius: .5rem;
-    font-size: 3rem;
-    padding: .5rem 1.2rem;
-    cursor: pointer;
-    display: none;
-  }
-
-.confirm-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* height: 100vh; */
-}
-.navbar {
-    background-color: rgb(255, 226, 36);
-    font-size: 1.7rem;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999; /* Ensures the navbar stays on top of other content */
-}
-.navbar span {
-    color: white;
-    padding-left: 50px; /* Set Trip text to white */
-}
-.content {
-    margin-top: 100px; /* Adjust this value to leave space for the navbar */
-}
-.success-warning {
-    background-color: #dba8a8;
-    color: #d32b2b;
-    padding: 30px;
-    border: 1px solid #c3e6cb;
-    border-radius: 3px;
+.container {
     text-align: center;
-    margin-top: 18%;
-}
+    padding: 250px;
+  
+    h2 {
+      font-size: 100px; // Adjust the font size as needed
+      margin-bottom: 20px;
+      color: rgba(0, 0, 0, 0.461);
+    }
+  
+    p {
+      font-size: 18px; // Adjust the font size as needed
+      margin-bottom: 20px;
+    }
+  
+    .goback {
+      margin-top: 20px;
+      padding: 10px 40px;
+      border-radius: 20px;
+      background-color: rgb(255, 222, 37);
+      cursor: pointer;
+      font-size: 2em;
+    }
 
-.success-warning h1{
-    font-size: 4em;
-}
+    .goback:hover{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
 
-.success-warning h3{
-    font-size: 3em;
-}
+    .contact {
+        margin-top: 20px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        margin-left: 30px;
+      }
 
-.success-warning h4{
-    font-size: 2em;
-}
-
-.go-back{
-    display: flex;
-    justify-content: center;
-    margin-top: 10%;
-}
-
-.go-back ul,li{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.go-back li{
-    float: left;
-}
-
-.btn{
-    margin-bottom: 23%;
-}
-
-
+    .contact:hover{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  
+    .error-message {
+      font-size: 24px; // Adjust the font size as needed
+      color: rgba(0, 0, 0, 0.479)(0, 0, 0); // or any other color you prefer
+    }
+  }
+  

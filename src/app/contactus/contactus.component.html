@@ -25,7 +25,7 @@
     <form class="form-container" [formGroup] = "userForm" (ngSubmit)="onSubmit(demoModal)">
       <h1>Contact Us</h1>
   
-      <label><b>Name</b></label>
+      <label><b>Name*</b></label>
       <input type="text" placeholder="Enter Name" formControlName = "name">
       <span *ngIf="!fCon.name.valid && fCon.name.dirty" class="help-block">*Only Alphabets (lim. 20), avoid spaces</span>
       

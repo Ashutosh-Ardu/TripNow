@@ -11,7 +11,7 @@ export const payGuard: CanActivateFn = (route, state) => {
 
   if(paid == 'false'){
     _router.navigate(['/packages'])
-    toastr.info('Choose a Pacakge and Pay First!!','Guard Log');
+    toastr.info('Choose a Package and Pay First!!','Guard Log');
     return false
   }
 

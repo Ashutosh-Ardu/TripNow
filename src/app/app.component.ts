@@ -26,7 +26,11 @@ export class AppComponent implements OnInit{
   }
   removeHeader():Boolean{
 
-    if(this.router.url === "/profile" || this.router.url === "/confirm") return false
+    if(this.router.url === "/profile" || 
+    this.router.url === "/confirm" ||
+    this.router.url === "/booking" ||
+    this.router.url === "/payment"
+  ) return false
 
     return localStorage.getItem("notFound") === null
   }

@@ -27,6 +27,7 @@ export class BookingComponent implements OnInit{
   
   ngOnInit(): void {
     this.data = history.state.package
+    localStorage.removeItem("bookRoute")
   }
 
   get fCon(){

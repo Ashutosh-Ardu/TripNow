@@ -61,14 +61,13 @@ textarea:focus {
 }
 
 .form-container .btn:disabled,.form-container .btn[disabled]{
-    background-color: #cccccc;
-    color: #666666;
+    opacity: 0.5;
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-    background-color: #04AA6D;
-    color: white;
+    background-color: gold;
+    color: black;
     padding: 6px 7px;
     border: none;
     cursor: pointer;
@@ -81,7 +80,8 @@ textarea:focus {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-    background-color: red;
+    background-color: #cccccc;
+    color: #666666;
 }
 
 /* Add some hover effects to buttons */

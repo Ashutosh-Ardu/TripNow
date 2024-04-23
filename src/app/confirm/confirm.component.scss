@@ -1,109 +1,121 @@
-.success-message{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
-}
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgb(255, 226, 36);
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 9%;
-  }
-
-  header .logo {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: #000000;
-  }
-
-  header .logo span {
-    color: white;
-  }
-
-
-  #menu-bar {
-    color: #fff;
-    border: .1rem solid #fff;
-    border-radius: .5rem;
-    font-size: 3rem;
-    padding: .5rem 1.2rem;
-    cursor: pointer;
-    display: none;
-  }
-
 .confirm-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* height: 100vh; */
-}
-.navbar {
-    background-color: rgb(255, 226, 36);
-    font-size: 1.7rem;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999; /* Ensures the navbar stays on top of other content */
-}
-.navbar span {
-    color: white;
-    padding-left: 50px; /* Set Trip text to white */
-}
-.content {
-    margin-top: 0; /* Adjust this value to leave space for the navbar */
-    width: 60%;
-}
-.success-message {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 30px;
-    border: 1px solid #c3e6cb;
-    border-radius: 3px;
-    text-align: center;
-    margin-top: 18%;
-}
-
-.success-message h1{
-    font-size: 2em;
-}
-
-.success-message h4{
-    font-size: 1.5em;
-}
-
-.success-message h3{
-    font-size: 1.3em;
-}
-
-.go-back{
     display: flex;
     justify-content: center;
-    margin-top: 2%;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
 }
-
-.go-back ul,li{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+ 
+.content {
+    background-color: #fff;
+    padding: 30px;
+    border-left: 150px solid #4caf50;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
-
-.go-back li{
-    float: left;
+ 
+.success-icon {
+    color: #ffffff;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    left: -120px;
+    position: absolute;
+    top: 43px;
 }
-
-.btn{
-    margin-bottom: 23%;
+ 
+.success-icon-inner {
+    font-size: 60px;
 }
-
-
+ 
+.success-message {
+    padding-left: 30px;
+    position: absolute;
+    top: 180px;
+    font-size: 15px;
+}
+ 
+h1 {
+    font-size: 50px;
+}
+ 
+hr {
+    border: none;
+    border-top: 1px solid #000000;
+    margin-bottom: 5px;
+}
+ 
+.line {
+    padding-left: 20px;
+    margin-top: 10px;
+    position: absolute;
+    top: 30px;
+}
+ 
+.line h3 {
+    padding-left: 10px;
+    color: #616161;
+    font-size: medium;
+}
+ 
+span {
+    color: #616161;
+    text-decoration: underline;
+}
+ 
+.success-message h4 {
+    margin-top: 10px;
+}
+ 
+.divider-line {
+    width: 95%;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+    position: absolute;
+    top: 135px;
+}
+ 
+.container {
+    text-align: center;
+    padding: 250px;
+    position: absolute;
+    bottom: 0;
+ 
+    .goback {
+        margin-top: 20px;
+        padding: 10px 40px;
+        border-radius: 10px;
+        background-color: gold;
+        cursor: pointer;
+        position: absolute;
+        bottom: 152px;
+        // margin-left: 30px;
+        left: 30px;
+    }
+   
+    .goback:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .contact {
+        margin-top: 20px;
+        padding: 10px 30px;
+        border-radius: 10px;
+        margin-left: 30px;
+        position: absolute;
+        bottom: 152px;
+        margin-left: 30px;
+        left: 150px;
+      }
+ 
+    .contact:hover{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+}

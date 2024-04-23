@@ -22,7 +22,11 @@ export class AuthService {
       localStorage.setItem('isLoggedIn','true')
       window.isLoggedIn = true
 
-      this.router.navigate(['/booking'], { state: { package: data } });
+      if(localStorage.getItem("bookRoute") === "true")
+        this.router.navigate(['/booking'], { state: { package: data } });
+      else
+        this.router.navigate(['/'])
+
       this.toastr.success("Login Successful","Session Log")
     },err => {
       // alert(err.message)
@@ -71,7 +75,7 @@ export class AuthService {
     this.fireauth.signOut().then(() => {
       localStorage.setItem('isLoggedIn','false')
       window.isLoggedIn = false
-      this.router.navigate(['/packages'])
+      this.router.navigate(['/'])
       this.toastr.warning("User Logged Out!","Session Log")
     },err => {
       this.toastr.error(err.message,"Error Log")

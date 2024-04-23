@@ -6,10 +6,10 @@ import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const _router = inject(Router)
-  let isLoggedIn = localStorage.getItem('isLoggedIn')
+  let isLoggedIn = window.isLoggedIn
   const toastr = inject(ToastrService)
 
-  if(isLoggedIn == 'false'){
+  if(isLoggedIn == false){
     _router.navigate(['/packages'])
     toastr.info('Please reserve a package first!','Guard Log');
     return false  

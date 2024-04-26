@@ -16,7 +16,7 @@
         <div class="name" style="margin-top: 11px;">
           <h1 style="display: inline-block; margin-right: 31px;">Name:</h1>
           <p style="display: inline-block;" *ngIf="!signIn">--Yet to SignIn--</p>
-          <p style="display: inline-block;" *ngIf="signIn">null</p>
+          <p style="display: inline-block;" *ngIf="signIn">{{ this.name }}</p>
         </div>
         <div class="email">
           <h1 style="display: inline-block; margin-right: 36px;">Email:</h1>
@@ -31,17 +31,83 @@
       </div>
 </div>
 <hr>
+<div class="bookings">
+    <h2>Your Bookings</h2>
+    <div class="placehol">
+        <h3 *ngIf="!this.isLoggedIn">Signin to view your BookingList</h3>
+        <div class="box-container" *ngIf="this.isLoggedIn">
+            <div class="plchol" *ngIf="filteredBoxes.length === 0">
+                <h2>No Booking so Far.</h2>
+            </div>
+            <div *ngFor="let box of filteredBoxes" class="box">
+                <a>
+                    <div class="image">
+                        <img style="width: 100%;" [src]="box.imageUrl" alt="">
+                        <!-- <div class="save" (click)="toggleSave($event, box)">
+                            <i class="fas fa-heart" [ngClass]="{'liked': isBoxLiked(box)}"></i>
+                        </div> -->
+                    </div>
+                    <div class="content">
+                        <p>{{ box.title }}</p>
+                        <h3>{{box.description}}</h3>
+                        <div class="bottom">
+                            <div class="stars">
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                            </div>
+                            <div class="num">{{ box.likes }}</div>
+                        </div>
+                    </div>
+                   
+                   
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr>
 <div class="wishlist">
     <h2>Your Wishlists</h2>
     <div class="placehol">
-        <h3>Signin to add pacakges into your Wishlist</h3>
-    </div>
-</div>
-<hr>
-<div class="bookings">
-    <h2>Bookings</h2>
-    <div class="placehol2">
-        <h3>Bookings will be Displayed here</h3>
+        <h3 *ngIf="!this.isLoggedIn">Signin to view your Wishlist</h3>
+
+        <div class="box-container" *ngIf="this.isLoggedIn">
+            <div class="plchol" *ngIf="countWish() == 0">
+                <h2>Wishlist's Empty.</h2>
+            </div>
+            <div *ngFor="let box of wishListBoxes" class="box">
+                <a *ngIf="box.addWish">
+                    <div class="image">
+                        <img style="width: 100%;" [src]="box.imageUrl" alt="">
+                        <!-- <div class="save" (click)="toggleSave($event, box)">
+                            <i class="fas fa-heart" [ngClass]="{'liked': isBoxLiked(box)}"></i>
+                        </div> -->
+                    </div>
+                    <div class="content">
+                        <p>{{ box.title }}</p>
+                        <h3>{{box.description}}</h3>
+                        <div class="bottom">
+                            <div class="stars">
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                                <i class="fas fa-star fa-2x"></i>
+                            </div>
+                            <div class="num">{{ box.likes }}</div>
+                        </div>
+                    </div>
+                   
+                   
+                </a>
+            </div>
+        </div>
+
     </div>
 </div>
  

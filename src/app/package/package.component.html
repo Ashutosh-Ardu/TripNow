@@ -29,8 +29,8 @@
                 <a (click)="selectData(box)">
                     <div class="image">
                         <img style="width: 100%;" [src]="box.imageUrl" alt="">
-                        <div class="save">
-                            <i class="fas fa-heart"></i>
+                        <div class="save" (click) = "toggleWish($event,box)">
+                            <i class="fas fa-heart" [class.liked] = "box.addWish"></i>
                         </div>
                     </div>
                     <div class="content">

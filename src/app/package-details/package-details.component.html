@@ -158,16 +158,6 @@
             <p><strong>Pickup:</strong> Included</p>
             <p>(No additional taxes or booking fees)</p><br>
         </div>
-
-        <!-- <form *ngFor="let tripData of tripDataArray; let i = index">
-            <div [ngClass]="{'selected': selectedDiv === tripData.id, 'disabled': selectedDiv !== tripData.id}" (click)="selectDiv(tripData.id)" class="tripsel">
-              <h3 style="font-size: 18px; margin-bottom: 5px; line-height:23px;">{{ tripData.title }}</h3>
-              <p><strong>Duration:</strong> {{ tripData.duration }}</p>
-              <p><strong>Lunch:</strong> {{ tripData.lunch }}</p>
-              <p><strong>Pickup:</strong> {{ tripData.pickup }}</p>
-              <p>{{ tripData.note }}</p><br>
-            </div>
-          </form> -->
         <button (click)="pushData()" [disabled]="!f.valid">Book Now</button>
     </form>
 

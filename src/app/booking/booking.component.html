@@ -34,11 +34,11 @@
         </div>
         <div class="error-head">
           <div class="name-error">
-            <span *ngIf="fCon.fname.errors && fCon.fname.dirty" class="help-block">*Only Alphabets
+            <span *ngIf="fCon.fname.errors && fCon.fname.touched" class="help-block">*Only Alphabets
               (lim. 20)</span>
           </div>
           <div class="name-error">
-            <span *ngIf="fCon.lname.errors && fCon.lname.dirty" class="help-block">*Only Alphabets
+            <span *ngIf="fCon.lname.errors && fCon.lname.touched" class="help-block">*Only Alphabets
               (lim. 20)</span>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <br>
         <input type="text" class="email" formControlName="email">
         <br>
-        <span style="margin-left: 5.25%;" *ngIf="!fCon.email.valid && fCon.email.dirty" class="help-block">*Enter Valid
+        <span style="margin-left: 5.25%;" *ngIf="!fCon.email.valid && fCon.email.touched" class="help-block">*Enter Valid
           Email</span>
         <br>
 
@@ -68,11 +68,11 @@
 
         <div class="error-head">
           <div class="name-error">
-            <span *ngIf="fCon.phno.invalid && fCon.phno.dirty" class="help-block">*Enter Valid
+            <span *ngIf="fCon.phno.invalid && fCon.phno.touched" class="help-block">*Enter Valid
               Phone No.</span>
           </div>
           <div class="name-error">
-            <span *ngIf="!fCon.doj.valid && fCon.doj.dirty" class="help-block">*Age should be
+            <span *ngIf="!fCon.doj.valid && fCon.doj.touched" class="help-block">*Age should be
               above 17</span>
           </div>
         </div>

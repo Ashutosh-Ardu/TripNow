@@ -70,6 +70,7 @@ export class PackageDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.data = history.state.package;
+    // console.log(this.data)
     this.route.params.subscribe(params => {
       // this.boxIndex = +params['id'];
       this.packageId = +params['id'];

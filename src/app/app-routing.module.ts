@@ -19,6 +19,7 @@ import { payGuard } from './guards/pay.guard';
 import { revPayGuard } from './guards/rev-pay.guard';
 import { LadakhComponent } from './ladakh/ladakh.component';
 import { ProfileComponent } from './profile/profile.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 const routes: Routes = [
   { path: 'home',component: HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: "confirm", component: ConfirmComponent,canActivate: [payGuard]},
   {path: "booking", component: BookingComponent,canActivate: [authGuard]},
   {path: "demo", component: DemoComponent},
+  {path: "invoice", component: InvoiceComponent},
   {path: "payment", component: PaymentComponent,canActivate: [authGuard,revPayGuard]},
   {path: "login", component: LoginComponent,canActivate: [revAuthGuard]},
   {path: "register", component: RegisterComponent,canActivate: [revAuthGuard]},

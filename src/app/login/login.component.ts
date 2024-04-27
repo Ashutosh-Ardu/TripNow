@@ -21,6 +21,8 @@ export class LoginComponent{
     private alerts: NgAlertBoxService
   ){
     window.scrollTo(0,0);
+    if(localStorage.getItem("bookRoute") != null)
+        localStorage.removeItem("bookRoute")
   }
   
 

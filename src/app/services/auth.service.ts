@@ -21,9 +21,10 @@ export class AuthService {
     this.fireauth.signInWithEmailAndPassword(email,password).then(() => {
       localStorage.setItem('isLoggedIn','true')
       window.isLoggedIn = true
-
-      if(localStorage.getItem("bookRoute") === "true")
+      
+      if(localStorage.getItem("bookRoute") === "true"){
         this.router.navigate(['/booking'], { state: { package: data } });
+      }
       else
         this.router.navigate(['/'])
 

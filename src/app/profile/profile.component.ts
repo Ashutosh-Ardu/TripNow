@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit{
   // for storing booking details
   filteredBoxes: any[] = [];
   wishListBoxes: any[] = [];
+  showWishList: any[] = [];
   len: number = 0
   isLoggedIn = window.isLoggedIn
   
@@ -32,17 +33,6 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // loading backend booking data
-    this.getData()
-    // console.log(this.filteredBoxes)
-    this.getWishlistData()
-    // console.log(this.wishListBoxes)
-
-    this.wishListBoxes.forEach(box => {
-      if(box.addWish) this.len++
-    })
-
-    console.log(this.len)
     
     // retreiving user details from firebase
     this.fireauth.currentUser.then((user) =>{
@@ -55,7 +45,14 @@ export class ProfileComponent implements OnInit{
       this.name = this.data.email
       this.name = this.name.substring(0,this.name.indexOf('@'))
       this.name = this.name[0].toUpperCase() + this.name.slice(1)
-      // console.log(this.name)
+      // console.log(this.name);
+
+      // loading backend booking data
+      this.getData()
+      // console.log(this.filteredBoxes)
+      
+      // loading backend wishlist data
+      this.getWishlistData()
     },err => {
       console.log(err.message)
     })   
@@ -65,8 +62,11 @@ export class ProfileComponent implements OnInit{
   countWish(){
     let len = 0;
     for(let box of this.wishListBoxes){
-      if(box.addWish) len = len + 1
+      if(box.addWish) {
+        len = len + 1
+      }
     }
+    // console.log("method ran")
     return len
   }
 
@@ -92,12 +92,26 @@ export class ProfileComponent implements OnInit{
     const dataInstance2 = collection(this.firestore,'wishlist');
 
     collectionData(dataInstance2,{ idField: 'idd' }).subscribe(val1 => {
+      // current list of packages
       this.wishListBoxes = val1
-      
+
+      // counting packages added to wishlist
+      for(let box of this.wishListBoxes){
+        if(box.addWish){
+          this.showWishList.push(box)
+        }
+      }
+
+      // console.log(this.wishListBoxes)
+      // console.log(this.showWishList)
       
     },err => {
       this.toastr.error(err.message,"Error Log")
     })
+  }
+
+  showInvoice(box:any){
+    this.router.navigate(['/invoice'],{state: {package: box}})
   }
 
 }

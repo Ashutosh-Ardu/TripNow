@@ -46,6 +46,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LadakhComponent } from './ladakh/ladakh.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './profile/profile.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ProfileComponent } from './profile/profile.component';
     ContactusComponent,
     NotFoundComponent,
     LadakhComponent,
-    ProfileComponent
+    ProfileComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserAnimationsModule, // required animations module

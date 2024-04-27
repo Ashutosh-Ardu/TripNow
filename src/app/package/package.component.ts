@@ -46,6 +46,7 @@ export class PackageComponent implements OnInit{
       title: "(Norway) TROMSØ 'Where your Arctic adventure begins'",
       description:'Increase your chances of a sighting the Northern Lights by joining a guided excursion, especially if you’re only in Tromso briefly.',
       price: 1200,
+      likes: '40',
       addWish: false,
     },
  

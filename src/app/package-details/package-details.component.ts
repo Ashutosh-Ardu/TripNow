@@ -30,6 +30,7 @@ export class PackageDetailsComponent implements OnInit {
     this.data['date'] =  this.inpDate;
     this.data['count'] = this.ppl;
     this.data['payment'] = 'false';
+    localStorage.setItem("bookRoute","true");
 
     this.router.navigate(['/login'], { state: { package: this.data } });
   }
@@ -51,7 +52,6 @@ export class PackageDetailsComponent implements OnInit {
     window.scrollTo(0,0);
     const today = new Date();
     today.setDate(today.getDate() + 1);
-    localStorage.setItem("bookRoute","true");
     this.minDate = today.toISOString().split('T') [0];
   }
 

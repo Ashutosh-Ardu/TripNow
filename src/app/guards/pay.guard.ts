@@ -6,7 +6,6 @@ export const payGuard: CanActivateFn = (route, state) => {
   const _router = inject(Router)
   const toastr = inject(ToastrService)
   let paid = localStorage.getItem('paid')
-  // let paid = window.paid
 
 
   if(paid == 'false'){

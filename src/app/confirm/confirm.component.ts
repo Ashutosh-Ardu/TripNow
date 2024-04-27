@@ -20,6 +20,7 @@ export class ConfirmComponent implements OnInit{
 
   ngOnInit(): void {
       this.addData(this.data)
+      localStorage.setItem("paid","false")
   }
 
   // booking list firestore backend

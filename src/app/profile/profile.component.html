@@ -7,7 +7,7 @@
     <button *ngIf="!signIn" routerLink="/login">Sign in</button>
     <button *ngIf="signIn" (click)="logOut()">Log Out</button>
 </header>
-<body style="padding: 20px; height: 200%;">
+<body style="padding: 20px;">
 <div class="signedindetails">
     <div class="profilepic">
         <i class="fas fa-user-circle"></i>
@@ -32,74 +32,69 @@
 </div>
 <hr>
 <div class="bookings">
-    <h2>Your Bookings</h2>
+    <h2>Bookings</h2>
     <div class="placehol">
-        <h3 *ngIf="!this.isLoggedIn">Signin to view your BookingList</h3>
+        <h3 *ngIf="!this.isLoggedIn">Signin to view your Bookings</h3>
         <div class="box-container" *ngIf="this.isLoggedIn">
             <div class="plchol" *ngIf="filteredBoxes.length === 0">
-                <h2>No Booking so Far.</h2>
+                <h3>No Booking so far.</h3>
             </div>
-            <div *ngFor="let box of filteredBoxes" class="box">
-                <a>
-                    <div class="image">
-                        <img style="width: 100%;" [src]="box.imageUrl" alt="">
-                        <!-- <div class="save" (click)="toggleSave($event, box)">
-                            <i class="fas fa-heart" [ngClass]="{'liked': isBoxLiked(box)}"></i>
-                        </div> -->
-                    </div>
-                    <div class="content">
-                        <p>{{ box.title }}</p>
-                        <h3>{{box.description}}</h3>
-                        <div class="bottom">
-                            <div class="stars">
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="fas fa-star fa-2x"></i>
-                                <i class="fas fa-star fa-2x"></i>
-                            </div>
-                            <div class="num">{{ box.likes }}</div>
+            <div class="box-container">
+                <div *ngFor="let box of filteredBoxes" class="box">
+                    <a (click) = "showInvoice(box)">
+                        <div class="image">
+                            <img style="width: 100%;"  [src]="box.imageUrl" alt="">
                         </div>
-                    </div>
-                   
-                   
-                </a>
+                        <div class="content">
+                            <p>{{ box.title }}</p>
+                            <h3>{{box.description}}</h3>
+                            <div class="bottom">
+                                <div class="stars">
+                                    <i class="fas fa-star fa-2x"></i>
+                                    <i class="fas fa-star fa-2x"></i>
+                                    <i class="fas fa-star fa-2x"></i>
+                                    <i class="fas fa-star fa-2x"></i>
+                                    <i class="fas fa-star fa-2x"></i>
+                                </div>
+                                <div class="num">{{ box.likes }}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-
+ 
 </div>
-
+ 
 <hr>
 <div class="wishlist">
-    <h2>Your Wishlists</h2>
-    <div class="placehol">
+    <h2>Wishlists</h2>
+    <div class="placehol2">
         <h3 *ngIf="!this.isLoggedIn">Signin to view your Wishlist</h3>
-
-        <div class="box-container" *ngIf="this.isLoggedIn">
-            <div class="plchol" *ngIf="countWish() == 0">
-                <h2>Wishlist's Empty.</h2>
+ 
+        <div class="box-container2" *ngIf="this.isLoggedIn">
+            <div class="plchol2" *ngIf="countWish() == 0">
+                <h3>Wishlist's empty.</h3>
             </div>
-            <div *ngFor="let box of wishListBoxes" class="box">
-                <a *ngIf="box.addWish">
-                    <div class="image">
-                        <img style="width: 100%;" [src]="box.imageUrl" alt="">
-                        <!-- <div class="save" (click)="toggleSave($event, box)">
-                            <i class="fas fa-heart" [ngClass]="{'liked': isBoxLiked(box)}"></i>
-                        </div> -->
+
+            <div *ngFor="let box of showWishList" class="box2">
+                <a>
+                    <div class="image2">
+                        <img style="width: 100%;border-radius: 10px 10px 0 0;"  [src]="box.imageUrl" alt="">
                     </div>
-                    <div class="content">
+                    <div class="content2">
                         <p>{{ box.title }}</p>
                         <h3>{{box.description}}</h3>
-                        <div class="bottom">
-                            <div class="stars">
+                        <div class="bottom2">
+                            <div class="stars2">
                                 <i class="fas fa-star fa-2x"></i>
                                 <i class="fas fa-star fa-2x"></i>
                                 <i class="fas fa-star fa-2x"></i>
                                 <i class="fas fa-star fa-2x"></i>
                                 <i class="fas fa-star fa-2x"></i>
                             </div>
-                            <div class="num">{{ box.likes }}</div>
+                            <div class="num2">{{ box.likes }}</div>
                         </div>
                     </div>
                    
@@ -107,7 +102,7 @@
                 </a>
             </div>
         </div>
-
+ 
     </div>
 </div>
  

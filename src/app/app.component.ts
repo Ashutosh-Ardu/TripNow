@@ -29,7 +29,8 @@ export class AppComponent implements OnInit{
     if(this.router.url === "/profile" || 
     this.router.url === "/confirm" ||
     this.router.url === "/booking" ||
-    this.router.url === "/payment"
+    this.router.url === "/payment" ||
+    this.router.url === "/invoice"
   ) return false
 
     return localStorage.getItem("notFound") === null

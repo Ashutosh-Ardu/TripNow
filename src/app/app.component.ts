@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 
 
 export class AppComponent implements OnInit{
-  title = 'travel';
 
   constructor(
     private store: AuthService,
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit{
     localStorage.setItem("paid","false")
     localStorage.setItem('isLoggedIn','false') 
     window.isLoggedIn = false;
-    console.log(this.router.url)
+    window.bookRoute = false;
 
   }
   removeHeader():Boolean{

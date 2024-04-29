@@ -22,6 +22,7 @@ export class PackageDetailsComponent implements OnInit {
   ppl: number;
   data:any;
   minDate: string;
+  maxDate: string;
   generatedDates: string[] = [];
   tripDataArray: TripData[];
 
@@ -30,9 +31,27 @@ export class PackageDetailsComponent implements OnInit {
     this.data['date'] =  this.inpDate;
     this.data['count'] = this.ppl;
     this.data['payment'] = 'false';
-    localStorage.setItem("bookRoute","true");
+    window.bookRoute = true;
 
     this.router.navigate(['/login'], { state: { package: this.data } });
+  }
+
+  // to get today's date in YYYY-MM-DD format
+  getDate(){
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    let todaysDate = `${year}-${month}-${day}`;
+    return todaysDate 
+  }
+
+  // check date's validation
+  dateValid(){
+    let curDate = this.inpDate.toISOString().split('T') [0]
+    console.log(curDate)
+    if(curDate > this.minDate && curDate < this.maxDate) return true
+    return false
   }
 
   openLowestPriceDialog() {
@@ -52,7 +71,9 @@ export class PackageDetailsComponent implements OnInit {
     window.scrollTo(0,0);
     const today = new Date();
     today.setDate(today.getDate() + 1);
+    // to fix the date field entered by the user
     this.minDate = today.toISOString().split('T') [0];
+    this.maxDate = "2026-01-01"
   }
 
   selectedDiv: number | undefined;

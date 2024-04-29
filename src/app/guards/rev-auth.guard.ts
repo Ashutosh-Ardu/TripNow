@@ -8,7 +8,7 @@ export const revAuthGuard: CanActivateFn = (route, state) => {
   let isLoggedIn = window.isLoggedIn
   // let isLoggedIn = window.isLoggedIn
 
-  if(localStorage.getItem("bookRoute") === 'true' && isLoggedIn == true){
+  if(window.bookRoute == true && isLoggedIn == true){
     _router.navigate(['/booking'],{state: {package : history.state.package}})
     toastr.info('Already Logged In!','Guard Log');
     return false

@@ -125,7 +125,11 @@
                 <label for="travelDate">Start Date:</label>
             </div>
             <div class="calendar">
-                <input type="date" [min]="minDate" [(ngModel)] = "this.inpDate" name="dot" ngModel required ngNativeValidate>
+                <input type="date" [min]="minDate" [max] = "maxDate" [(ngModel)] = "this.inpDate" name="date" #dot = "ngModel" ngModel required ngNativeValidate>
+            </div>
+
+            <div class="calendar">
+                <label class="validate" *ngIf="dot.dirty && (dot.value < minDate || dot.value > maxDate)">Enter Valid Date</label>
             </div>
 
             <div class="people-selection">
@@ -158,7 +162,7 @@
             <p><strong>Pickup:</strong> Included</p>
             <p>(No additional taxes or booking fees)</p><br>
         </div>
-        <button (click)="pushData()" [disabled]="!f.valid">Book Now</button>
+        <button (click)="pushData()" [disabled]="(dot.value < minDate || dot.value > maxDate || !f.valid)">Book Now</button>
     </form>
 
     <div class="guide">
